@@ -5,8 +5,8 @@ import javax.persistence.*;
 @Entity
 public class Job{
 
-    @Id
-    @GeneratedValue
+ @Id
+@GeneratedValue
     private int id;
 
     private String name;
