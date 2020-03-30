@@ -1,17 +1,22 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
+
+import java.util.Objects;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.validation.constraints.NotNull;
-import java.util.Objects;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
-//@MappedSuperclass
+@MappedSuperclass
 public abstract class AbstractEntity {
 
-//@Id
-//@GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
-//@NotNull
+
+    @NotBlank(message = "Name is required")
+    @Size(min = 3, max = 100, message = "Name must be between 3 and 100 characters")
     private String name;
 
     public int getId() {
